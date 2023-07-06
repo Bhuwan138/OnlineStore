@@ -10,15 +10,24 @@
 6. React Loading Skeleton
 
 ## How to run the program locally.
-
 1. Fork the https://github.com/Bhuwan138/OnlineStore/ project repository to your profile and clone it to your machine to begin the project.
-   git clone git@github.com:Bhuwan138/OnlineStore.git
-   cd OnlineStore/
-   ![Alt text](image.png)
+ ```
+    git clone git@github.com:Bhuwan138/OnlineStore.git
+    cd OnlineStore/
+```
+    
+![image](https://github.com/Bhuwan138/OnlineStore/assets/61963538/bb1286c4-24ce-4bc3-8a6c-974828e5b88a)
 
-2. Install the dependencies node module
+  
+3. Install the dependencies node module
+```
    npm i
-3. Run the project
+```
+5. Run the project
+```
    npm run dev
-4. Open the website on browser by navigating the the localhost link
+```
+7. Open the website on browser by navigating the the localhost link
+```
    http://localhost:5173/
+```
