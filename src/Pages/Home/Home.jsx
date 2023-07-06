@@ -2,7 +2,10 @@ import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setProducts } from "../../redux/slices/productSlice";
+import {
+  setFilteredProducts,
+  setProducts,
+} from "../../redux/slices/productSlice";
 import ProductComponent from "../../Components/ProductComponent";
 import Skeleton from "react-loading-skeleton";
 
@@ -41,6 +44,7 @@ const Home = () => {
     },
   });
   dispatch(setProducts(data));
+  dispatch(setFilteredProducts(data));
   return (
     <div>
       {isLoading ? (

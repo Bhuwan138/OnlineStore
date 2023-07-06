@@ -4,7 +4,10 @@ import styles from "./ProductComponents.module.css";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.productReducer.products);
-  const renderProducts = products.map((item) => {
+  const filteredProducts = useSelector(
+    (state) => state.productReducer.filteredProducts
+  );
+  const renderProducts = filteredProducts.map((item) => {
     return (
       <div
         className="card my-3 h-100 text-center py-4"
