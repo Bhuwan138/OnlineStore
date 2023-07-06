@@ -4,6 +4,9 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import SearchBox from "./SearchBox";
+import Button from "react-bootstrap/Button";
+import { FaShoppingCart } from "react-icons/fa";
+
 const NavBar = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -21,6 +24,11 @@ const NavBar = () => {
             navbarScroll
           />
           <SearchBox />
+          <Link to={"/cart"}>
+            <Button variant="outline-success" onClick={() => {}}>
+              <FaShoppingCart /> Cart (<span>0</span>)
+            </Button>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
