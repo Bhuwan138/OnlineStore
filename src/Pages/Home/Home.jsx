@@ -9,6 +9,7 @@ import {
 import ProductComponent from "../../Components/ProductComponent";
 import Skeleton from "react-loading-skeleton";
 import { productAPI } from "../../utils/api";
+import CarouselComponent from "../../Components/CarouselComponent";
 
 const Loading = () => {
   return (
@@ -53,7 +54,10 @@ const Home = () => {
           <Loading />
         </>
       ) : (
-        <ProductComponent />
+        <>
+          <CarouselComponent />
+          <ProductComponent />
+        </>
       )}
     </div>
   );
