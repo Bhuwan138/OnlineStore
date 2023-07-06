@@ -6,6 +6,7 @@ const productSlice = createSlice({
     products: [],
     selectedProduct: {},
     filteredProducts: [],
+    isFiltered: false,
   },
   reducers: {
     setProducts: (state, action) => {
@@ -17,10 +18,17 @@ const productSlice = createSlice({
     setFilteredProducts: (state, action) => {
       state.filteredProducts = action.payload;
     },
+    setIsFiltered: (state, action) => {
+      state.isFiltered = action.payload;
+    },
   },
 });
 
 export default productSlice.reducer;
 
-export const { setProducts, setSelectedProduct, setFilteredProducts } =
-  productSlice.actions;
+export const {
+  setProducts,
+  setSelectedProduct,
+  setFilteredProducts,
+  setIsFiltered,
+} = productSlice.actions;

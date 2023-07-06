@@ -1,7 +1,9 @@
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilteredProducts } from "../redux/slices/productSlice";
+import {
+  setFilteredProducts,
+  setIsFiltered,
+} from "../redux/slices/productSlice";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
@@ -9,12 +11,15 @@ const SearchBox = () => {
   const searchProduct = (e) => {
     const searchValue = e.target.value;
 
-    if (searchValue === "") dispatch(setFilteredProducts(products));
-
+    if (searchValue.trim() === "") {
+      dispatch(setFilteredProducts(products));
+      dispatch(setIsFiltered(false));
+    }
     const filter = products?.filter((product) =>
       product.title.toLowerCase().includes(searchValue.toLowerCase())
     );
     dispatch(setFilteredProducts(filter));
+    dispatch(setIsFiltered(true));
   };
 
   return (
@@ -26,7 +31,6 @@ const SearchBox = () => {
         className="me-2"
         aria-label="Search"
       />
-      <Button variant="outline-success">Search</Button>
     </Form>
   );
 };

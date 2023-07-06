@@ -1,7 +1,9 @@
 import styles from "./SelectedProduct.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { FaShoppingCart, FaStar } from "react-icons/fa";
 
 const SelectedProduct = () => {
+  const dispatch = useDispatch();
   const selectedProduct = useSelector(
     (state) => state.productReducer.selectedProduct
   );
@@ -22,12 +24,14 @@ const SelectedProduct = () => {
         </h4>
         <h1 className="display-5"> {selectedProduct.title} </h1>
         <p className="lead fw-bolder">
-          Rating {selectedProduct.rating && selectedProduct.rating.rate}{" "}
-          <i className="fa fa-star"></i>
+          Rating {selectedProduct.rating && selectedProduct.rating.rate}
+          <FaStar />
         </p>
         <h3 className="display-6 fw-bold my-4">$ {selectedProduct.price}</h3>
         <p className="lead text-justify">{selectedProduct.description}</p>
-        <button className="btn btn-outline-dark px-4 py-2">Add To Cart</button>
+        <button className="btn btn-outline-dark px-4 py-2">
+          <FaShoppingCart /> Add To Cart
+        </button>
       </div>
     </>
   );

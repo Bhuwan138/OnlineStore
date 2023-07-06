@@ -8,6 +8,7 @@ import NavBar from "./Components/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import "react-loading-skeleton/dist/skeleton.css";
+import Cart from "./Pages/Cart/Cart";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -16,6 +17,7 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

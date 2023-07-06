@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setFilteredProducts,
   setProducts,
@@ -40,6 +40,8 @@ const fetchProducts = async () => {
 
 const Home = () => {
   const dispatch = useDispatch();
+  const isFiltered = useSelector((state) => state.productReducer.isFiltered);
+
   const { data, isLoading } = useQuery("products", fetchProducts, {
     onError: (error) => {
       <p> Error Message {error}</p>;
@@ -55,7 +57,7 @@ const Home = () => {
         </>
       ) : (
         <>
-          <CarouselComponent />
+          {!isFiltered && <CarouselComponent />}
           <ProductComponent />
         </>
       )}

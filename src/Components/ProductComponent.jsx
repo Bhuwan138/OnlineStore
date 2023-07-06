@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./ProductComponents.module.css";
+import { FaCartPlus } from "react-icons/fa";
 
 const ProductComponent = () => {
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.productReducer.products);
   const filteredProducts = useSelector(
     (state) => state.productReducer.filteredProducts
@@ -15,6 +17,11 @@ const ProductComponent = () => {
         title={item.title}
         style={{ width: "18rem" }}
       >
+        <FaCartPlus
+          onClick={() => {
+            dispatch(addItem(item));
+          }}
+        />
         <Link className={`${styles.brand}`} to={`products/${item.id}`}>
           <img
             src={item.image}
