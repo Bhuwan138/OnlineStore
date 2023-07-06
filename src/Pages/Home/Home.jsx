@@ -8,6 +8,7 @@ import {
 } from "../../redux/slices/productSlice";
 import ProductComponent from "../../Components/ProductComponent";
 import Skeleton from "react-loading-skeleton";
+import { productAPI } from "../../utils/api";
 
 const Loading = () => {
   return (
@@ -29,7 +30,7 @@ const Loading = () => {
 
 const fetchProducts = async () => {
   try {
-    const { data } = await axios.get(`https://fakestoreapi.com/products`);
+    const { data } = await axios.get(productAPI);
     return data;
   } catch (error) {
     throw Error("Unable to fetch products");

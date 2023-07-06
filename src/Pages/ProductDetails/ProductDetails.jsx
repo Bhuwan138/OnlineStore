@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
+import { productAPI } from "../../utils/api";
 
 const Loading = () => {
   return (
@@ -27,9 +28,7 @@ const Loading = () => {
 
 const fetchSelectedProduct = async (productId) => {
   try {
-    const { data } = await axios.get(
-      `https://fakestoreapi.com/products/${productId}`
-    );
+    const { data } = await axios.get(`${productAPI}/${productId}`);
     return data;
   } catch (error) {
     throw Error("Unable to fetch products");
